@@ -1,13 +1,21 @@
 import struct
+from PIL import Image
+
+
+# img = Image.open('./assets/tiger.bmp').convert('L')
+
+# img.show()
+
+# img.save('./assets/new_tiger.bmp', 'bmp')
 
 
 class Bitmap(object):
     def __init__(self, file_path):
-        """Initialization method for Bitmap instance.
-        Provides itemized data related to consumed Bitmap file through the use of a MemoryView object.
         """
-        with open(file_path, 'rb') as file:
-            self.source = bytearray(file.read())
+        Reads original image based on filepath.
+        """
+        # self.img = Image.open(file_path)
+        self.file_path = file_path
         """
         self.memory_view = memoryview(self.source)
 
@@ -20,6 +28,15 @@ class Bitmap(object):
         """Class Method which consumes a file path as input, and returns a Bitmap instance.
         """
         pass
+
+    def make_grayscale(self):
+        self.img = Image.open(self.file_path).convert('L')
+        self.new_name = self.file_path.split()
+        self.img.save('./assets/new.bmp', 'bmp')
+
+    def make_(self):
+        self.img = Image.open(self.file_path).convert('L')
+        self.img.save('./assets/new_tiger.bmp', 'bmp')
 
     def write_file(self, target):
         """Instance Method which accepts a target file path and writes the instance source data to target path.
@@ -53,4 +70,7 @@ class Bitmap(object):
 
     # TODO: Write your instance methods for transformations here as part of the Bitmap class.
 
-bitmap = Bitmap('')
+
+tiger = Bitmap('./assets/tiger.bmp')
+
+tiger.make_grayscale()
