@@ -4,7 +4,8 @@ import struct
 class Bitmap(object):
     def __init__(self, file_path):
         """Initialization method for Bitmap instance.
-        Provides itemized data related to consumed Bitmap file through the use of a MemoryView object.
+        Provides itemized data related to consumed Bitmap file through the use 
+        of a MemoryView object.
         """
         with open(file_path, 'rb') as file:
             self.source = bytearray(file.read())
@@ -17,18 +18,21 @@ class Bitmap(object):
 
     @classmethod
     def read_file(cls, origin):
-        """Class Method which consumes a file path as input, and returns a Bitmap instance.
+        """Class Method which consumes a file path as input, and returns a 
+        Bitmap instance.
         """
         pass
 
     def write_file(self, target):
-        """Instance Method which accepts a target file path and writes the instance source data to target path.
+        """Instance Method which accepts a target file path and writes the 
+        instance source data to target path.
         """
         with open(target, 'wb') as file:
             file.write(self.source)
 
     def get_headers(self):
-        """Instance Method which provides instance source data as readable output to std out.
+        """Instance Method which provides instance source data as readable 
+        output to std out.
         """
         import struct as s
         result = f'''
