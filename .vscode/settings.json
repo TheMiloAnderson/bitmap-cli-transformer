@@ -1,0 +1,6 @@
+{
+    "python.pythonPath": "/home/milo/.local/share/virtualenvs/bitmap-cli-transformer-g2MSi3y4/bin/python",
+    "python.linting.pylintEnabled": false,
+    "python.linting.pep8Enabled": true,
+    "python.linting.enabled": true
+}
