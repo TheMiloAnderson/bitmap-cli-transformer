@@ -13,8 +13,7 @@ This application is a Bitmap transformer. It will read a Bitmap file in, run col
 
 ## Architecture
 Python, Cmd module, Pillow module
-on. This is also an area which you can include any visuals; flow charts, example usage gifs, screen captures, etc.-->
-
+on. 
 ## API
 No APIs used.
 
