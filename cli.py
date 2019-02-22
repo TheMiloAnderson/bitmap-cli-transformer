@@ -4,6 +4,14 @@ from modify import Bitmap
 print ('Number of arguments:', len(sys.argv), 'arguments.')
 print ('Argument List:', str(sys.argv))
 
+if len(sys.argv) < 3:
+    print("""
+    *****************************************************************
+    *** Not enough parameters. Please enter the file name and at  ***
+    *** least 1 transform.                                        ***
+    *****************************************************************
+    """)
+
 input_file_path = sys.argv[1]
 transforms = sys.argv[2:]
 
