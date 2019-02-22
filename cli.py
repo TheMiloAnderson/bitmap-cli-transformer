@@ -11,12 +11,12 @@ if len(sys.argv) < 3:
     *** least 1 transform.                                        ***
     *****************************************************************
     """)
+else:
+    input_file_path = sys.argv[1]
+    transforms = sys.argv[2:]
 
-input_file_path = sys.argv[1]
-transforms = sys.argv[2:]
-
-bitmap = Bitmap(input_file_path)
-bitmap.make_grayscale()
-for transform in transforms:
-    method = getattr(bitmap, transform)
-    method()
+    bitmap = Bitmap(input_file_path)
+    bitmap.make_grayscale()
+    for transform in transforms:
+        method = getattr(bitmap, transform)
+        method()
