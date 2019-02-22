@@ -24,38 +24,39 @@ class Bitmap(object):
     def make_grayscale(self, img='self.img'):
         new_path = self.new_file_path('_grayscale')
         img = self.img.convert('L')
-        img.save(new_path, 'bmp')
-        return img
+        return [new_path, img]
 
     def flip_horizontal(self, img='self.img'):
         new_path = self.new_file_path('_horizonal')
         img = self.img.transpose(Image.FLIP_LEFT_RIGHT)
-        img.save(new_path, 'bmp')
-        return img
+        return [new_path, img]
 
     def flip_vertical(self, img='self.img'):
         new_path = self.new_file_path('_vertical')
         img = self.img.transpose(Image.FLIP_TOP_BOTTOM)
-        img.save(new_path, 'bmp')
+        return [new_path, img]
 
     def invert_colors(self, img='self.img'):
         new_path = self.new_file_path('_invert')
-        inverted = ImageOps.invert(self.img)
-        inverted.save(new_path, 'bmp')
-        return img
+        img = ImageOps.invert(self.img)
+        return [new_path, img]
 
     def make_thumbnail(self, img='self.img'):
         new_path = self.new_file_path('_thumbnail')
         size = 128, 128
         img = self.img.copy()
         img.thumbnail(size)
-        img.save(new_path, 'bmp')
-        return img
+        return [new_path, img]
 
+    def save_new(self, lst):
+        lst[1].save(lst[0], 'bmp')
 
-tiger = Bitmap('./assets/tiger.bmp')
-tiger.make_grayscale()
-tiger.flip_horizontal()
-tiger.flip_vertical()
-tiger.make_thumbnail()
-tiger.invert_colors()
+if __name__ == "__main__":
+
+    tiger = Bitmap('./assets/tiger.bmp')
+
+    tiger.save_new(tiger.make_grayscale())
+    tiger.save_new(tiger.flip_horizontal())
+    tiger.save_new(tiger.flip_vertical())
+    tiger.save_new(tiger.make_thumbnail())
+    tiger.save_new(tiger.invert_colors())
