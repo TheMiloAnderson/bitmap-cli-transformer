@@ -12,6 +12,7 @@ pep8 = "*"
 bitmap = "*"
 ipython = "*"
 pillow = "*"
+pytest = "*"
 
 [requires]
 python_version = "3"

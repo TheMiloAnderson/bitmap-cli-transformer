@@ -27,7 +27,7 @@ class Bitmap(object):
         return [new_path, img]
 
     def flip_horizontal(self, img='self.img'):
-        new_path = self.new_file_path('_horizonal')
+        new_path = self.new_file_path('_horizontal')
         img = self.img.transpose(Image.FLIP_LEFT_RIGHT)
         return [new_path, img]
 
