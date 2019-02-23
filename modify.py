@@ -1,20 +1,14 @@
-import struct
 from PIL import Image, ImageOps
 
 
 class Bitmap(object):
+    
     def __init__(self, file_path):
         """
         Records original file path.
         """
         self.file_path = file_path
         self.img = Image.open(self.file_path)
-        """
-        self.memory_view = memoryview(self.source)
-        self.offset = struct.unpack('I', self.memory_view[10:14].tobytes())[0]
-        self.color_table = self.memory_view[54:self.offset]
-        self.pixel_array = self.memory_view[self.offset:]
-        """
 
     def new_file_path(self, mod_type):
         """
