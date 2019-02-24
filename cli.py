@@ -25,4 +25,7 @@ bitmap = Bitmap(input_file_path)
 bitmap.make_grayscale()
 for transform in transforms:
     method = getattr(bitmap, transform)
-    bitmap.save_new(method())
+    if transform == 'custom_grayscale':
+        bitmap.save_custom(method())
+    else:
+        bitmap.save_new(method())
